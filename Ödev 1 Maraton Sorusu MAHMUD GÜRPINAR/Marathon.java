@@ -9,14 +9,14 @@ public class Marathon {
         this.name = name;
     }
 
-    public void processMarathon() {
+    public void processMarathon() { //Birinci, İkinci, Üçüncü koşucuların isimlerini ve sürelerini yazdıran method.
 
         System.out.println("Birinci: " + name[first()]);
         System.out.println("İkinci: " + name[second()]);
         System.out.println("Üçüncü: " + name[third()]);
     }
 
-    public void outputChart() {
+    public void outputChart() { //Sürelerin bulunduğu dizinin tamamının içinde dolaşıp hangi aralıkta kaç koşucu olduğunu bulan ve yazdıran method.
         int A = 0, B = 0, C = 0;
 
         for (int time : time) {
@@ -34,7 +34,7 @@ public class Marathon {
     }
 
 
-    public int first() {
+    public int first() { //En düşük süreye sahip koşucuyu bulup onun dizideki sırasını dönderen method.
         int firstTime = time[0], count1 = 0;
 
         for (int i = 0; i < time.length; i++) {
@@ -46,11 +46,11 @@ public class Marathon {
         return count1;
     }
 
-    public int second() {
+    public int second() { //En düşük ikinci süreye sahip koşucuyu bulup onun dizideki sırasını dönderen method.
         int secondTime = time[0], count2 = 0;
 
         for (int i = 0; i < time.length; i++) {
-            if (time[i] < secondTime && time[i] > time[first()]) {
+            if (time[i] < secondTime && time[i] > time[first()]) { //Koşul eğer yeni sayı ikinci en küçükten küçük ve sayı birinci methodda bulunan sıradaki süreden büyükse çalışıyor.
                 secondTime = time[i];
                 count2 = i;
             }
@@ -58,11 +58,11 @@ public class Marathon {
         return count2;
     }
 
-    public int third() {
+    public int third() { //En düşük üçüncü süreye sahip koşucuyu bulup onun dizideki sırasını dönderen method.
         int thirdTime = time[0], count3 = 0;
 
         for (int i = 0; i < time.length; i++) {
-            if (time[i] < thirdTime && time[i] > time[second()]) {
+            if (time[i] < thirdTime && time[i] > time[second()]) { //Koşul eğer yeni sayı üçüncü en küçükten küçük ve sayı ikinci methodda bulunan sıradaki süreden büyükse çalışıyor.
                 thirdTime = time[i];
                 count3 = i;
             }
